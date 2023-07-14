@@ -112,23 +112,23 @@ function App() {
         </main>
         <footer className="margin-top">
           <Grid container>
-            <Grid item xs={12} lg={4}>
+            <Grid item xs={12} md={4} lg={3}>
               <a href="">CONTACT</a>
             </Grid>
-            <Grid item xs={12} lg={4}>
+            <Grid item xs={12} md={4} lg={3}>
               <a href="">TERMS OF SERVICES</a>
             </Grid>
-            <Grid item xs={12} lg={4}>
+            <Grid item xs={12} md={4} lg={3}>
               <a href="">SHIPPING AND RETURNS</a>
             </Grid>
           </Grid>
-
-          <h3 className="section-header"> Follow us on our social media</h3>
+          {/*  <h3 className="section-header"> Follow us on our social media</h3> */}
           <div className="social-media">
             {socialMedia.map((item) => {
               return <SocialMedia link={item.link} iconName={item.icon} />;
             })}
           </div>
+          <small>Terms of use and privacy policy</small>
         </footer>
       </div>
     </>

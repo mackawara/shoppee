@@ -90,8 +90,12 @@ li {
   justify-content: space-around;
   width: 50%;
 }
+.social-media a {
+  font-size: xx-large;
+  color: var(--main-font-color);
+} /* 
 footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
+} */
