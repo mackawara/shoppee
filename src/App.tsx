@@ -1,23 +1,57 @@
 import { useState } from "react";
 import "./App.css";
-import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import NavBar from "./Navbar";
 import {
   faTwitter,
   faInstagram,
   faFacebook,
-  faFontAwesome,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import SocialMedia from "./SocialMedia";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
-
 import ProductCard from "./Card";
 
 function App() {
   const [email, setEmail] = useState("");
+  const [check, setChecked] = useState(false);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    //test email beofre submitting
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g.test(email)) {
+      //  if not valid email send error message or popup
+      alert("invalid Email");
+      return;
+    }
+    const formData = new URLSearchParams();
+    formData.append("email", email);
+
+    try {
+      const response = await fetch(
+        "https://subscriber-server-service.onrender.com/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: formData.toString(),
+        }
+      );
+      //handle response accordingly
+      if (response.status === 500) {
+        alert("email saved successful");
+      } else {
+        alert("there was a problem saving your email");
+      }
+      //set response to
+    } catch (err) {
+      console.log(err);
+      //alert
+    }
+  };
   const socialMedia = [
     { link: "https://www.facebook.com/livestockwealthZA/", icon: faFacebook },
     { link: "https://twitter.com/livestockwealth", icon: faTwitter },
@@ -68,18 +102,18 @@ function App() {
   return (
     <>
       <div className="main-container">
-        <nav></nav>
+        <NavBar />
         {/* jumbotron section */}
         <div className="jumbotron">
           <div className="main-header">
             <h2>Gold Big Hoops</h2>
             <h3>$68.00</h3>
             <button>
-              <a href="#products">Products</a>
+              <a href="#products"> View Products</a>
             </button>
           </div>
         </div>
-        <main className="margin-top">
+        <main className="margin-top" id="products">
           <h3 className="section-header"> Shop the Latest</h3>
           <Grid container spacing={2}>
             {products.map((product) => (
@@ -93,42 +127,59 @@ function App() {
               </Grid>
             ))}
           </Grid>
-
-          <Grid container>
-            <Grid item xs={6} lg={12}>
-              <TextField
-                id="email"
-                label="Submit email to subscribe to the newsletter"
-                variant="standard"
-                value={email}
-              />
-            </Grid>
-            <Grid item xs={6} lg={12}>
-              <button>
-                <ArrowRightAltIcon color="action" />
-              </button>
-            </Grid>
-          </Grid>
         </main>
-        <footer className="margin-top">
-          <Grid container>
-            <Grid item xs={12} md={4} lg={3}>
-              <a href="">CONTACT</a>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <a href="">TERMS OF SERVICES</a>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <a href="">SHIPPING AND RETURNS</a>
-            </Grid>
-          </Grid>
-          {/*  <h3 className="section-header"> Follow us on our social media</h3> */}
-          <div className="social-media">
-            {socialMedia.map((item) => {
-              return <SocialMedia link={item.link} iconName={item.icon} />;
-            })}
+        <footer>
+          <div className="flex-container">
+            <div className="flex-item">
+              <a href="" className="nav-bottom">
+                CONTACT
+              </a>
+
+              <a href="" className="nav-bottom">
+                TERMS OF SERVICES
+              </a>
+
+              <a href="" className="nav-bottom">
+                SHIPPING AND RETURNS
+              </a>
+            </div>
+
+            <div className="flex-item">
+              <div className="input-group">
+                <input
+                  type="email"
+                  placeholder="Place email here to get the newsletter"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <ArrowRightAltIcon
+                  color="action"
+                  type="submit"
+                  onClick={handleSubmit}
+                />
+              </div>
+            </div>
           </div>
-          <small>Terms of use and privacy policy</small>
+          <div className="flex-item">
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox />}
+                label="I agree to the websites terms and conditions"
+              />
+            </FormGroup>
+          </div>
+          <div className="flex-container">
+            <div className="flex-item">
+              <a href="">2023 Shelly:Terms of use and privacy policy</a>
+            </div>
+            <div className="flex-item">
+              <p>Follow us</p>
+
+              {socialMedia.map((item) => {
+                return <SocialMedia link={item.link} iconName={item.icon} />;
+              })}
+            </div>
+          </div>
+          {/*  <h3 className="section-header"> Follow us on our social media</h3> */}
         </footer>
       </div>
     </>
