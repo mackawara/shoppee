@@ -3,13 +3,10 @@ import "./App.css";
 
 export default function SocialMedia(props: any) {
   return (
-    
-      <div className="social-media-group">
-        <a href={props.link}>
-          <FontAwesomeIcon icon={props.iconName} } />
-        </a>
-      </div>
-    
+    <div className="social-media-group">
+      <a href={props.link}>
+        <FontAwesomeIcon icon={props.iconName} />
+      </a>
+    </div>
   );
 }
-
