@@ -19,7 +19,7 @@ export default function ProductCard(props: any) {
           <Typography gutterBottom variant="h5" component="div">
             {props.productName}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" fontSize={14}>
             {props.price}
           </Typography>
         </CardContent>
