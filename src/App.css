@@ -151,6 +151,7 @@ input {
 .social-media-group {
   display: flex;
   max-width: 2em;
+  margin-left: 1em;
 }
 
 .nav-bottom {

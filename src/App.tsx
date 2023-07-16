@@ -160,7 +160,7 @@ function App() {
             </div>
           </div>
           <div className="flex-item">
-            <FormGroup>
+            <FormGroup sx={{ display: { xs: "flex", md: "none" } }}>
               <FormControlLabel
                 control={<Checkbox />}
                 label="I agree to the websites terms and conditions"

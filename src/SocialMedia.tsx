@@ -6,7 +6,7 @@ export default function SocialMedia(props: any) {
     
       <div className="social-media-group">
         <a href={props.link}>
-          <FontAwesomeIcon icon={props.iconName} />
+          <FontAwesomeIcon icon={props.iconName} } />
         </a>
       </div>
     
