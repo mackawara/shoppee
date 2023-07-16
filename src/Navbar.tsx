@@ -8,15 +8,53 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["Shop", "Our Story", "Blog"];
+import { ShoppingCartOutlined, Search } from "@mui/icons-material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const pages = ["Shop", "Blog", "Our Story"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar() {
+const theme = createTheme({
+  components: {
+    // Name of the component
+    MuiAppBar: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          border: "none",
+          color: "00000ff",
+          marginBottom: "1em",
+          alignItems: "center",
+        },
+      },
+    },
+    /*  MuiToolbar:{
+      styleOverrides: {
+        // Name of the slot
+        root: {backgroundColor:"yellow"},border: "1px solid red" },
+    }, */
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "red",
+          fontFamily: "Montserrat",
+          color: "00000ff",
+        },
+      },
+    },
+  },
+});
+
+export default function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -40,29 +78,19 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" theme={theme}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
+          <img src="assets/logo.svg" alt="shopee" />
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              justifyContent: "flex-end",
+
+              /*   alignItems: "center", */
             }}
           >
-            Shopee
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -78,12 +106,12 @@ function ResponsiveAppBar() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left",
+                horizontal: "right",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -92,37 +120,42 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem
+                  sx={{
+                    color: "#000000ff",
+                    fontFamily: "Montserrat",
+                    fontStyle: "normal",
+                    marginLeft: "2em",
+                  }}
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography sx={{ color: "#000000ff" }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
             }}
           >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "#000000ff",
+                  display: "block",
+                  marginLeft: "2em",
+                  fontSize: "1,2em",
+                  verticalAlign: "center",
+                }}
               >
                 {page}
               </Button>
@@ -130,11 +163,40 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <Box
+              sx={{ justifyContent: "space-between", alignContent: "center",alignItems:"center" }}
+            >
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <PermIdentityIcon
+                    sx={{
+                      color: "#000000ff",
+                      display: { xs: "none", md: "none", lg: "flex" },
+                      marginLeft: "1em",
+                    }}
+                  />
+                </IconButton>
+              </Tooltip>
+              <IconButton>
+                <ShoppingCartOutlined
+                  sx={{
+                    marginLeft: "1em",
+                    color: "#000000ff",
+                    alignSelf: "center",
+                  }}
+                />
               </IconButton>
-            </Tooltip>
+              <IconButton>
+                <Search
+                  sx={{
+                    color: "#000000ff",
+                    display: { xs: "none", md: "none", lg: "flex" },
+                    marginLeft: "1em",
+                  }}
+                />
+              </IconButton>
+            </Box>
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -163,4 +225,3 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
