@@ -18,10 +18,10 @@ import ProductCard from "./Card";
 
 function App() {
   const mainFontColor = "#000000ff";
-  /*  const darkFontColor = "14213dff";
-  const specialFontColor = "fca311ff";
-  const secondaryFontColor = "e5e5e5ff";
-  const mainBackgroundColor = "ffffffff"; */
+  const darkFontColor = "#14213dff";
+  const specialFontColor = "#fca311ff";
+  const secondaryFontColor = "#e5e5e5ff";
+  const mainBackgroundColor = "#ffffffff";
   const [email, setEmail] = useState("");
   const [check, setChecked] = useState(false);
   const handleSubmit = async (e: React.FormEvent) => {
@@ -109,6 +109,9 @@ function App() {
     <>
       <div className="main-container">
         <NavBar />
+        <div className="search-bar">
+          <input type="text" name="" placeholder="SEARCH" id="" />
+        </div>
         <div className="button-bar">
           <Button
             variant="outlined"
@@ -116,7 +119,8 @@ function App() {
               color: mainFontColor,
               borderRadius: "0.5em",
               border: "1px solid",
-              borderColor: mainFontColor,
+              borderColor: secondaryFontColor,
+              fontFamily: "Montserrat",
             }}
           >
             Necklaces
@@ -127,7 +131,8 @@ function App() {
               color: mainFontColor,
               borderRadius: "0.5em",
               border: "1px solid",
-              borderColor: mainFontColor,
+              borderColor: secondaryFontColor,
+              fontFamily: "Montserrat",
             }}
           >
             Earrings
@@ -137,14 +142,12 @@ function App() {
         <div className="jumbotron">
           <div className="main-header">
             <h2>Gold Big Hoops</h2>
-            <h3>$68.00</h3>
-            <button>
-              <a href="#products"> View Products</a>
-            </button>
+            <h2>$68.00</h2>
+            <button>View Products</button>
           </div>
         </div>
         <main className="margin-top" id="products">
-          <h3 className="section-header" > Shop the Latest</h3>
+          <h3 className="section-header"> Shop the Latest</h3>
           <Grid container spacing={2}>
             {products.map((product) => (
               <Grid item xs={12} sm={6} md={4}>
