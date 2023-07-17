@@ -6,13 +6,13 @@ import { CardActionArea } from "@mui/material";
 
 export default function ProductCard(props: any) {
   return (
-    <Card sx={{ marginTop: "2em", minWidth: 280 }}>
+    <Card sx={{ margin: "0 0.5em 1em", minWidth: 280 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="320"
           image={props.imageSrc}
           alt={props.productName}
+          sx={{ minHeight: 320 }}
         />
         <CardContent>
           <Typography
