@@ -18,12 +18,11 @@ import ProductCard from "./Card";
 
 function App() {
   const mainFontColor = "#000000ff";
-  const darkFontColor = "#14213dff";
-  const specialFontColor = "#fca311ff";
+
   const secondaryFontColor = "#e5e5e5ff";
-  const mainBackgroundColor = "#ffffffff";
+
   const [email, setEmail] = useState("");
-  const [check, setChecked] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     //test email beofre submitting
@@ -110,7 +109,7 @@ function App() {
       <div className="main-container">
         <NavBar />
         <div className="search-bar">
-          <input type="text" name="" placeholder="SEARCH" id="" />
+          <input type="text" placeholder="SEARCH" />
         </div>
         <div className="button-bar">
           <Button
