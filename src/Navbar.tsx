@@ -152,7 +152,7 @@ export default function NavBar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0 ,flexWrap:"nowrap"}}>
             <Box
               sx={{
                 justifyContent: "space-between",
@@ -176,7 +176,7 @@ export default function NavBar() {
                   sx={{
                     marginLeft: "1em",
                     color: "#000000ff",
-                    display: { xs: "none", md: "none", lg: "flex" },
+                    display: { xs: "flex", lg: "flex" },
                   }}
                 />
               </IconButton>
@@ -191,17 +191,17 @@ export default function NavBar() {
               </IconButton>
               <IconButton
                 size="large"
-                sx={{
-                  color: "#000000ff",
-                  display: { xs: "flex", md: "none", lg: "none" },
-                  marginLeft: "1em",
-                }}
+              
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
-                <MenuIcon />
+                <MenuIcon   sx={{
+                  color: "#000000ff",
+                  display: { xs: "flex", md: "none", lg: "none" },
+                  marginLeft: "1em",
+                }} />
               </IconButton>
             </Box>
 
