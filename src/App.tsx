@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Button from "@mui/material/Button";
 import NavBar from "./Navbar";
 import {
   faTwitter,
@@ -16,6 +17,11 @@ import SocialMedia from "./SocialMedia";
 import ProductCard from "./Card";
 
 function App() {
+  const mainFontColor = "#000000ff";
+  /*  const darkFontColor = "14213dff";
+  const specialFontColor = "fca311ff";
+  const secondaryFontColor = "e5e5e5ff";
+  const mainBackgroundColor = "ffffffff"; */
   const [email, setEmail] = useState("");
   const [check, setChecked] = useState(false);
   const handleSubmit = async (e: React.FormEvent) => {
@@ -103,6 +109,30 @@ function App() {
     <>
       <div className="main-container">
         <NavBar />
+        <div className="button-bar">
+          <Button
+            variant="outlined"
+            sx={{
+              color: mainFontColor,
+              borderRadius: "0.5em",
+              border: "1px solid",
+              borderColor: mainFontColor,
+            }}
+          >
+            Necklaces
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              color: mainFontColor,
+              borderRadius: "0.5em",
+              border: "1px solid",
+              borderColor: mainFontColor,
+            }}
+          >
+            Earrings
+          </Button>
+        </div>
         {/* jumbotron section */}
         <div className="jumbotron">
           <div className="main-header">
@@ -114,7 +144,7 @@ function App() {
           </div>
         </div>
         <main className="margin-top" id="products">
-          <h3 className="section-header"> Shop the Latest</h3>
+          <h3 className="section-header" > Shop the Latest</h3>
           <Grid container spacing={2}>
             {products.map((product) => (
               <Grid item xs={12} sm={6} md={4}>
@@ -132,19 +162,19 @@ function App() {
           <div className="flex-container">
             <div className="flex-item">
               <a href="" className="nav-bottom">
-                CONTACT
+                Contact
               </a>
 
               <a href="" className="nav-bottom">
-                TERMS OF SERVICES
+                Terms of service
               </a>
 
               <a href="" className="nav-bottom">
-                SHIPPING AND RETURNS
+                Shipping and returns
               </a>
             </div>
 
-            <div className="flex-item">
+            <div className="flex-item right">
               <div className="input-group">
                 <input
                   type="email"
@@ -171,8 +201,8 @@ function App() {
             <div className="flex-item">
               <a href="">2023 Shelly:Terms of use and privacy policy</a>
             </div>
-            <div className="flex-item">
-              <p>Follow us</p>
+            <div className="flex-item right">
+              <p id="followus">Follow us</p>
 
               {socialMedia.map((item) => {
                 return <SocialMedia link={item.link} iconName={item.icon} />;

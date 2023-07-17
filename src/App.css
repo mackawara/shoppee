@@ -24,6 +24,7 @@
 }
 .section-header {
   color: var(--main-font-color);
+  display: flex;
 }
 .main-header * {
   width: 100%;
@@ -36,22 +37,37 @@
 .main-header h2,
 h3 {
   color: var(--main-background-color);
+  font: size 2.5em;
 }
 
 .main-header button {
   border-radius: 0.75em;
-  max-width: 40%;
-  height: 10vh;
+  width: auto;
+  padding: 1em;
+  height: auto;
   color: var(--main-background-color);
   border: 1px solid var(--main-background-color);
   background-color: transparent;
   text-align: center;
+  margin-top: 1em;
 }
 .main-header button a {
   color: var(--main-background-color);
   font-weight: 500;
   text-decoration: none;
   text-align: center;
+}
+.button-bar {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 1em 0;
+  height: 3em;
+}
+.button-bar * {
+  width: 45%;
+  height: 4em;
 }
 
 a,
@@ -135,13 +151,16 @@ footer {
   display: flex;
   flex-wrap: nowrap;
   margin-top: 1em;
-  font-size: 1em;
-  width: 40%;
+
+  width: 48%;
+  align-items: center;
 }
-.flex-item a,
-p,
+
+.flex-item p,
+a,
 input {
   font-size: 1.5em;
+  color: var(--main-font-color);
 }
 
 .flex-item .social-media-group {
@@ -150,17 +169,19 @@ input {
 }
 .social-media-group {
   display: flex;
-  max-width: 2em;
-  margin-left: 1em;
+  /*  max-width: 2em; */
+  margin-left: 2em;
+}
+#followus {
+  display: none;
 }
 
 .nav-bottom {
-  margin-top: 1.5em;
-  margin-right: 1.5em;
   text-align: start;
+  margin-right: 1em;
 }
 .social-media-group a {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-left: 1em;
   color: var(--main-font-color);
 }
@@ -168,11 +189,22 @@ input {
   :root {
     font-size: 18px;
   }
+  .section-header {
+    display: none;
+  }
+  .main-header * {
+    color: var(--main-background-color);
+    font: size 1.5em;
+  }
+  .jumbotron {
+    display: none;
+  }
   .nav-bottom {
     width: 80%;
+    margin-top: 1.5em;
   }
   .social-media-group {
-    margin-left: 2em;
+    margin-left: 1em;
   }
   .flex-item p {
     margin: 0;
@@ -197,10 +229,25 @@ input {
   }
 }
 
+@media screen and (min-width: 993px) {
+  :root {
+    font-size: 18px;
+  }
+  .button-bar {
+    display: none;
+  }
+  .right {
+    justify-content: flex-end;
+  }
+  .main-header * {
+    font-size: 2em;
+  }
+}
 @media screen and (min-width: 1440px) {
   :root {
     font-size: 18px;
   }
+
   .main-header * {
     font-size: 2em;
   }

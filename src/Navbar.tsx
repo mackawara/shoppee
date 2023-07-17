@@ -91,16 +91,6 @@ export default function NavBar() {
               /*   alignItems: "center", */
             }}
           >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -164,7 +154,11 @@ export default function NavBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Box
-              sx={{ justifyContent: "space-between", alignContent: "center",alignItems:"center" }}
+              sx={{
+                justifyContent: "space-between",
+                alignContent: "center",
+                alignItems: "center",
+              }}
             >
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -182,7 +176,7 @@ export default function NavBar() {
                   sx={{
                     marginLeft: "1em",
                     color: "#000000ff",
-                    alignSelf: "center",
+                    display: { xs: "none", md: "none", lg: "flex" },
                   }}
                 />
               </IconButton>
@@ -194,6 +188,20 @@ export default function NavBar() {
                     marginLeft: "1em",
                   }}
                 />
+              </IconButton>
+              <IconButton
+                size="large"
+                sx={{
+                  color: "#000000ff",
+                  display: { xs: "flex", md: "none", lg: "none" },
+                  marginLeft: "1em",
+                }}
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
               </IconButton>
             </Box>
 
