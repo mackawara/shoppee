@@ -134,15 +134,17 @@ function App() {
               fontFamily: "Montserrat",
             }}
           >
-            Earrings
+            Earings
           </Button>
         </div>
         {/* jumbotron section */}
         <div className="jumbotron">
           <div className="main-header">
             <h2>Gold Big Hoops</h2>
-            <h2>$68.00</h2>
-            <button>View Products</button>
+            <p>$68.00</p>
+            <button className="view-products">
+              <a href="#products">View Products</a>
+            </button>
           </div>
         </div>
         <main className="margin-top" id="products">

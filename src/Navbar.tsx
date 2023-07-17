@@ -51,6 +51,8 @@ export default function NavBar() {
         color: "00000ff",
         marginBottom: "1em",
         alignItems: "center",
+        justifyContent:"space-between",
+        width: "100%",
       }}
     >
       <Container maxWidth="xl">

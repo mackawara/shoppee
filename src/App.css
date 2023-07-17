@@ -15,7 +15,6 @@ html {
 }
 
 .main-container {
-  /*  display: flex; */
   flex-wrap: nowrap;
   width: 90%;
   margin: 8vh 5% 0;
@@ -24,15 +23,18 @@ html {
   display: flex;
   flex-wrap: wrap;
   width: 50%;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
+
   align-self: center;
-  height: 30vh;
-  margin-left: 10%;
+  height: auto;
+  margin-left: 5%;
 }
 .section-header {
   color: var(--main-font-color);
   display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 .main-header * {
   width: 100%;
@@ -42,30 +44,37 @@ html {
   text-align: left;
   margin: 0;
 }
-.main-header h2,
-h3 {
+.main-header p,
+h2 {
   color: var(--main-background-color);
-  /*  font-size: 2.5em; */
+  display: flex;
+  vertical-align: middle;
+}
+.main-header h2 {
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+.main-header p {
+  font-size: 1.5em;
 }
 
-.main-header button {
-  border-radius: 0.75em;
-  width: auto;
-  padding: 1em;
-  height: auto;
+.view-products {
+  color: var(--main-background-color);
+  border-radius: 0.5em;
+  text-decoration: none;
+  text-align: center;
+  width: 60%;
+  padding: 0.5em 1em;
+  font-size: 18px;
   color: var(--main-background-color);
   border: 1px solid var(--main-background-color);
   background-color: transparent;
-  text-align: center;
-  margin-top: 1em;
-  font-size: 2em;
+  margin-top: 2em;
 }
-.main-header button a {
-  color: var(--main-background-color);
-  font-weight: 400;
-  text-decoration: none;
-  text-align: center;
-  font-size: 2em;
+.view-products a {
+  font-size: 1em;
+  padding: 1em 0;
 }
 .button-bar {
   width: 100%;
@@ -269,10 +278,26 @@ input {
 }
 @media screen and (min-width: 1440px) {
   :root {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .main-header * {
     font-size: 1.5em;
+  }
+  .view-products {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  :root {
+    font-size: 24px;
+  }
+  .main-header {
+    width: 60%;
+  }
+  .view-products {
+    width: 80%;
+    font-size: 3em;
   }
 }
