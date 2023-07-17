@@ -218,7 +218,8 @@ input {
     margin-top: 1.5em;
   }
   .social-media-group {
-    margin-left: 1em;
+    margin-right: 1em;
+    margin-left: 0;
   }
   .flex-item p {
     margin: 0;

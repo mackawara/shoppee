@@ -152,10 +152,10 @@ export default function NavBar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 ,flexWrap:"nowrap"}}>
+          <Box sx={{ flexGrow: 0, flexWrap: "nowrap" }}>
             <Box
               sx={{
-                justifyContent: "space-between",
+                justifyContent: "flex-end",
                 alignContent: "center",
                 alignItems: "center",
               }}
@@ -166,7 +166,7 @@ export default function NavBar() {
                     sx={{
                       color: "#000000ff",
                       display: { xs: "none", md: "none", lg: "flex" },
-                      marginLeft: "1em",
+                      marginLeft: "0.5em",
                     }}
                   />
                 </IconButton>
@@ -174,9 +174,9 @@ export default function NavBar() {
               <IconButton>
                 <ShoppingCartOutlined
                   sx={{
-                    marginLeft: "1em",
+                    marginLeft: "0.5em",
                     color: "#000000ff",
-                    display: { xs: "flex", lg: "flex" },
+                    display: { xs: "none", md: "flex", lg: "flex" },
                   }}
                 />
               </IconButton>
@@ -185,23 +185,24 @@ export default function NavBar() {
                   sx={{
                     color: "#000000ff",
                     display: { xs: "none", md: "none", lg: "flex" },
-                    marginLeft: "1em",
+                    marginLeft: "0.5em",
                   }}
                 />
               </IconButton>
               <IconButton
                 size="large"
-              
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
-                <MenuIcon   sx={{
-                  color: "#000000ff",
-                  display: { xs: "flex", md: "none", lg: "none" },
-                  marginLeft: "1em",
-                }} />
+                <MenuIcon
+                  sx={{
+                    color: "#000000ff",
+                    display: { xs: "flex", md: "none", lg: "none" },
+                    marginLeft: "1em",
+                  }}
+                />
               </IconButton>
             </Box>
 
