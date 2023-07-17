@@ -149,7 +149,7 @@ function App() {
           <h3 className="section-header"> Shop the Latest</h3>
           <Grid container spacing={2}>
             {products.map((product) => (
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={12} sm={6} md={4} rowSpacing={2}>
                 <ProductCard
                   key={product.productCode}
                   price={product.price}

@@ -61,7 +61,6 @@ export default function NavBar() {
               flexGrow: 1,
               display: { xs: "flex", md: "none" },
               justifyContent: "flex-end",
-
             }}
           >
             <Menu
@@ -117,6 +116,7 @@ export default function NavBar() {
                   display: "block",
                   marginLeft: "2em",
                   fontSize: "1,2em",
+                  fontFamily: "Montserrat",
                   verticalAlign: "center",
                 }}
               >
