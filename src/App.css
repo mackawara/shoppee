@@ -103,7 +103,7 @@ li {
 }
 .jumbotron {
   display: flex;
-  background-image: url("assets/jumbotron.png");
+  background-image: url("/assets/jumbotron.png");
   background-position: center;
   background-size: cover;
   border-radius: 1em;
