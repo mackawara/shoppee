@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
@@ -15,44 +14,9 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
 import { ShoppingCartOutlined, Search } from "@mui/icons-material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const pages = ["Shop", "Blog", "Our Story"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-const theme = createTheme({
-  components: {
-    // Name of the component
-    MuiAppBar: {
-      styleOverrides: {
-        // Name of the slot
-        root: {
-          // Some CSS
-          backgroundColor: "transparent",
-          boxShadow: "none",
-          border: "none",
-          color: "00000ff",
-          marginBottom: "1em",
-          alignItems: "center",
-        },
-      },
-    },
-    /*  MuiToolbar:{
-      styleOverrides: {
-        // Name of the slot
-        root: {backgroundColor:"yellow"},border: "1px solid red" },
-    }, */
-    MuiIconButton: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "red",
-          fontFamily: "Montserrat",
-          color: "00000ff",
-        },
-      },
-    },
-  },
-});
 
 export default function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -78,7 +42,17 @@ export default function NavBar() {
   };
 
   return (
-    <AppBar position="static" theme={theme}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        border: "none",
+        color: "00000ff",
+        marginBottom: "1em",
+        alignItems: "center",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src="assets/logo.svg" alt="shopee" />
@@ -88,7 +62,6 @@ export default function NavBar() {
               display: { xs: "flex", md: "none" },
               justifyContent: "flex-end",
 
-              /*   alignItems: "center", */
             }}
           >
             <Menu
