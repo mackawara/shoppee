@@ -35,6 +35,7 @@ html {
   display: flex;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+  margin: 1em;
 }
 .main-header * {
   width: 100%;
@@ -296,8 +297,14 @@ input {
   .main-header {
     width: 60%;
   }
+  .main-header h2 {
+    font-size: 3em;
+  }
+  .main-header p {
+    font-size: 2.5em;
+  }
   .view-products {
     width: 80%;
-    font-size: 3em;
+    font-size: 2.5em;
   }
 }
